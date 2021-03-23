@@ -1,10 +1,10 @@
-<div class="footer">
+<div class="navbar fixed-bottom">
+  <div class="footer">
     <div class="pull-right">
-        <%= User.count %> użytkowników w systemie,
-        <%= Concept.count %> haseł w bazie,
-        <%= Tag.count %> tagów w bazie
+      Dzisiaj jest <strong><%= l(Time.now + 1.hour, format: '%A, %d %B %Y, godzina %H:%M') %></strong>.
     </div>
     <div>
-        <strong>Copyright</strong> Cal.pl &copy; <%= Date.today.year %>
+      <strong>Copyright</strong> Cal.pl &copy; 2020-<%= Date.today.year %>
     </div>
+  </div>
 </div>
