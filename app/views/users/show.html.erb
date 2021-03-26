@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2><%= @user.email %></h2>
+    <h2><%= @user.name.present? ? @user.name : @user.email %></h2>
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
         <a href="<%= root_path %>">Strona Główna</a>
@@ -9,7 +9,7 @@
         <a href="<%= users_path %>">Użytkownicy</a>
       </li>
       <li class="breadcrumb-item active">
-        <strong><%= @user.email %></strong>
+        <strong><%= @user.name.present? ? @user.name : @user.email %></strong>
       </li>
     </ol>
   </div>

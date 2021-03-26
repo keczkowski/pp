@@ -104,6 +104,6 @@ class ConceptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def concept_params
-      params.require(:concept).permit(:name, :body, :user_id, tag_ids: [])
+      params.require(:concept).permit(:name, :name_en, :body, :body_en, :user_id, :authors, tag_ids: [])
     end
 end

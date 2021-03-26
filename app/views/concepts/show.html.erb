@@ -25,10 +25,6 @@
   </div>
   <div class="ibox-content">
     <p>
-      <strong>Nazwa</strong><br />
-      <%= @concept.name %>
-    </p>
-    <p>
       <strong>Tagi</strong><br />
       <% if @concept.tags.count > 0 %>
         <% @concept.tags.each do |tag| %>
@@ -41,6 +37,19 @@
       <% end %>
     </p>
     <p>
+      <strong>Autorzy</strong><br />
+      <%= @concept.authors %>
+    </p>
+    <p>
+      <strong>Nazwa [PL]</strong><br />
+      <%= @concept.name %>
+    </p>
+    <p>
+      <strong>Nazwa [EN]</strong><br />
+      <%= @concept.name_en %>
+    </p>
+
+    <p>
       <strong>Użytkownik</strong><br />
       <%= link_to @concept.user do %>
       <span class="badge badge-primary"><%= @concept.user.email %></span>
@@ -51,13 +60,24 @@
 
 <div class="ibox">
   <div class="ibox-title">
-    <h3>Treść</h3>
+    <h3>Treść [PL]</h3>
     <div class="ibox-tools">
       <%= link_to 'Edycja', edit_concept_path(@concept), class: "btn btn-sm btn-primary" %>
-
     </div>
   </div>
   <div class="ibox-content">
     <%= @concept.body.html_safe %>
+  </div>
+</div>
+
+<div class="ibox">
+  <div class="ibox-title">
+    <h3>Treść [EN]</h3>
+    <div class="ibox-tools">
+      <%= link_to 'Edycja', edit_concept_path(@concept), class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <%= @concept.body_en.html_safe %>
   </div>
 </div>

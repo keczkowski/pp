@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :has_access_to_users
+  before_action :has_access_to_users, except: [:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -24,6 +24,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    unless @user == current_user or current_user.access_users == true
+      redirect_to root_path, notice: "Nie masz uprawnień do tej części systemu"
+    end
   end
 
   # POST /users
@@ -44,10 +47,18 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    unless @user == current_user or current_user.access_users == true
+      redirect_to root_path, notice: "Nie masz uprawnień do tej części systemu"
+    end
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Użytkownik został zmieniony.' }
-        format.json { render :show, status: :ok, location: @user }
+        if current_user.access_users
+          format.html { redirect_to @user, notice: 'Dane użytkownika zostały zmienione.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { redirect_to root_path, notice: 'Ustawienia profilu zostały zmienione.' }
+          format.json { render :show, status: :ok, location: @user }
+        end
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }

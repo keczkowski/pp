@@ -23,12 +23,14 @@
     <%= pic.file_field :avatar, id: "user_avatar", name: "user[avatar]" %>
   <% end %>
   <hr>
-  <h3>Dostępy do modułów systemu</h3>
-  <%= f.input :verified, label: "Dostęp do systemu", as: :boolean %>
-  <%= f.input :access_tags, label: "Dostęp do bazy tagów", as: :boolean %>
-  <%= f.input :access_concepts, label: "Dostęp do bazy pojęć", as: :boolean %>
-  <%= f.input :access_users, label: "Dostęp do bazy użytkowników", as: :boolean %>
-  <hr>
+  <% if current_user.access_users == true %>
+    <h3>Dostępy do modułów systemu</h3>
+    <%= f.input :verified, label: "Dostęp do systemu", as: :boolean %>
+    <%= f.input :access_tags, label: "Dostęp do bazy tagów", as: :boolean %>
+    <%= f.input :access_concepts, label: "Dostęp do bazy pojęć", as: :boolean %>
+    <%= f.input :access_users, label: "Dostęp do bazy użytkowników", as: :boolean %>
+    <hr>
+  <% end %>
   <%= f.button :submit, "Zapisz", class: "btn btn-sm btn-primary" %>
   <%= link_to "Anuluj", users_path, class: "btn btn-sm btn-primary" %>
 <% end %>
