@@ -5,7 +5,7 @@ class Concept < ApplicationRecord
 
   belongs_to :user
 
-  def show_tags
-    tags.map { |x| x.name }.join(" | ")
-  end
+  validates :name, presence: true
+  validates :body, presence: true
+
 end
