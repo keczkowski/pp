@@ -1,4 +1,4 @@
-<h2>Ustawienia konta</h2>
+<h2>Settings</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -10,28 +10,28 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password, label: "Hasło",
-                hint: "pozostaw puste jeśli nie chcesz go zmieniać",
+    <%= f.input :password, label: "New Password",
+                hint: "leave blank if youd don't want to change your password",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Potwierdzenia hasła",
-                hint: "pozostaw puste jeśli nie chcesz go zmieniać",
+    <%= f.input :password_confirmation, label: "Password Confrimation",
+                hint: "leave blank if youd don't want to change your password",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password, label: "Aktualne hasło",
-                hint: "jest potrzebne do zmiany hasła",
+    <%= f.input :current_password, label: "Current Password",
+                hint: "enter the current password",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Zapisz zmiany", class: "btn btn-sm btn-primary" %>
+    <%= f.button :submit, "Save", class: "btn btn-sm btn-primary" %>
   </div>
 <% end %>
 
 <hr>
-<h3>Usunięcie konta</h3>
+<h3>Delete Account</h3>
 
-<p>Masz już dość? <%= link_to "Usuń moje konto", registration_path(resource_name), data: { confirm: "Czy na pewno chcesz usunąć swoje konto z systemu?" }, method: :delete %></p>
+<p>Are you done? <%= link_to "Delete this account", registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account from the system?" }, method: :delete %></p>
 
-<%= link_to "Cofnij", :back %>
+<%= link_to "Back", :back %>
