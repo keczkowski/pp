@@ -13,7 +13,7 @@ Rails.application.routes.draw do
                                                sign_up: 'signup' }
 
   get "home/index"
-
+  get 'def/:id' => 'home#def', as: 'def'
   root to: 'home#index'
 
 end
