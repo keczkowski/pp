@@ -42,8 +42,8 @@ en:
           zero: Nie znaleziono %{entry_name}
   views:
     pagination:
-      first: "&laquo; Pierwsza"
-      last: Ostatnia &raquo;
-      next: Dalej &rsaquo;
-      previous: "&lsaquo; Wstecz"
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Previous"
       truncate: "&hellip;"
