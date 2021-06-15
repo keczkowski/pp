@@ -19,6 +19,21 @@
     </div>
   </div>
   <div class="ibox-content">
-    
+    <%= simple_form_for(@contact_form) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :body, label: "Message" %>
+      <%= f.input :email %>
+      <%= f.input :name, label: "Your name" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Send", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+
   </div>
 </div>

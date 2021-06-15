@@ -24,10 +24,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def has_access_to_contact_forms
-    unless current_user.present? and current_user.verified == true and current_user.access_forms == true
-      redirect_to root_path, notice: "Nie masz dostępu do tej części systemu."
-    end
-  end
-
 end
