@@ -20,13 +20,11 @@
       <tr>
         <th>Name [EN]</th>
         <th>Name [PL]</th>
-        <th>Authors</th>
       </tr>
       <% @concepts.each do |concept| %>
         <tr>
           <td><%= link_to concept.name_en, def_path(id: concept.id) %></td>
           <td><%= link_to concept.name, def_path(id: concept.id) %></td>
-          <td><%= link_to concept.authors, def_path(id: concept.id) %></td>
         </tr>
       <% end %>
     </table>

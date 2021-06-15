@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_095456) do
+ActiveRecord::Schema.define(version: 2021_06_14_124712) do
 
   create_table "concept_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "concept_id"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2021_03_26_095456) do
     t.string "name_en"
     t.text "body_en"
     t.string "authors"
+  end
+
+  create_table "contact_forms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email"
+    t.string "title"
+    t.text "body"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -63,6 +72,8 @@ ActiveRecord::Schema.define(version: 2021_03_26_095456) do
     t.boolean "access_concepts"
     t.boolean "access_users"
     t.boolean "verified"
+    t.boolean "access_stats"
+    t.boolean "access_forms"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

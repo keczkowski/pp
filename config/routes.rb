@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contact_forms
   resources :tags
   resources :concepts
   resources :users
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
                                                sign_up: 'signup' }
 
   get "home/index"
+  get "home/contact"
+  get "home/stats"
   get 'def/:id' => 'home#def', as: 'def'
   root to: 'home#index'
 

@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @q = Concept.ransack(params[:q])
@@ -8,6 +7,9 @@ class HomeController < ApplicationController
 
   def def
     @concept = Concept.find(params[:id])
+  end
+
+  def contact
   end
 
 end
