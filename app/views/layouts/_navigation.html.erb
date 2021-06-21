@@ -3,8 +3,11 @@
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
         <div class="dropdown profile-element">
+          <span class="block m-t-xs font-bold" style="color:white;">
+            Log4Me
+          </span>
           <% if current_user and current_user.avatar.present? %>
-          <%= image_tag current_user.avatar.thumb.url, class: "rounded-circle", size: 50 %>
+            <%= image_tag current_user.avatar.thumb.url, class: "rounded-circle", size: 50 %>
           <% end %>
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <span class="block m-t-xs font-bold">
@@ -49,7 +52,7 @@
           PP+
         </div>
       </li>
-      <li class="<%= 'active' if controller_name == 'home' %>">
+      <li class="<%= 'active' if action_name == 'index' and controller_name == 'home' %>">
         <%= link_to "/" do %>
         <i class="fa fa-laptop"></i> <span class="nav-label">Home</span>
         <% end %>
@@ -58,6 +61,12 @@
       <li class="<%= 'active' if controller_name == 'concepts' %>">
         <%= link_to concepts_path do %>
         <i class="fa fa-book"></i> <span class="nav-label">Baza Definicji</span>
+        <% end %>
+      </li>
+      <% else %>
+      <li class="<%= 'active' if action_name == 'definitions' %>">
+        <%= link_to home_definitions_path do %>
+        <i class="fa fa-book"></i> <span class="nav-label">Definitions</span>
         <% end %>
       </li>
       <% end %>

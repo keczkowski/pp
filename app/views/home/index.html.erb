@@ -1,9 +1,9 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>Home</h2>
+    <h2>Log4Me</h2>
     <ol class="breadcrumb">
       <li class="breadcrumb-item active">
-        <strong>Home</strong>
+        <strong>Słownik terminologii logistycznej dla każdego</strong>
       </li>
     </ol>
   </div>
@@ -11,31 +11,19 @@
 
 <div class="ibox">
   <div class="ibox-title">
-    <h3>Definitions</h3>
+    <h3>Home</h3>
     <div class="ibox-tools">
     </div>
   </div>
   <div class="ibox-content">
-    <table class="table table-striped">
-      <tr>
-        <th>Name [EN]</th>
-        <th>Name [PL]</th>
-      </tr>
-      <% @concepts.each do |concept| %>
-        <tr>
-          <td><%= link_to concept.name_en, def_path(id: concept.id) %></td>
-          <td><%= link_to concept.name, def_path(id: concept.id) %></td>
-        </tr>
-      <% end %>
-    </table>
-    <%= paginate @concepts %>
+    <p>
+      Dostępny dla Państwa słownik terminologii logistycznej jest zbiorem pojęć i definicji z rozległego świata współczesnej logistyki oraz wybranych obszarów z nią powiązanych. Celem słownika jest dostarczenie potencjalnym użytkownikom wiedzy z zakresu pojęć niezbędnych do zrumienia logistycznych aspektów funkcjonowania przedsiębiorstw, łańcuchów dostaw oraz obsługi klienta.
+    </p>
+    <p>
+      W założeniu autorów opracowania wśród licznego grona potencjalnych odbiorców słownika będą zarówno osoby związane zawodowo z logistyką jak i użytkownicy korzystający z niego w różnych kontekstach takich jak m.in. tłumaczenie tekstów anglojęzycznych, czy samodzielne poszerzanie wiedzy w różnorodnych aspektach życia i pracy zawodowej. W związku z tym przedstawione w słowniku definicje pojęć mają funkcję popularyzatorską, bez pogłębionych rozważań i są wynikiem zarówno prac własnych, jak i przeglądu literatury przedmiotu.
+    </p>
+    <p>
+      Słownik jest rozwijany, korygowany i uzupełniany o nowe pojęcia w sposób ciągły, będąc w zamyśle łatwo dostępnym źródłem wiedzy, które może wpłynąć na ład pojęciowy w gospodarce i społeczeństwie.
+    </p>
   </div>
 </div>
-
-<%= content_for :searchbar do %>
-  <%= search_form_for @q, url: root_path, class: "navbar-form-custom" do |f| %>
-    <div class="form-group">
-        <%= f.search_field :name_or_name_en_or_body_or_body_en_or_authors_cont, placeholder: "Search", id: "top-search", class: "form-control" %>
-    </div>
-  <% end %>
-<% end %>

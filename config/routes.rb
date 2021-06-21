@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "home/index"
   get "home/contact"
   get "home/stats"
+  get "home/definitions"
   get 'def/:id' => 'home#def', as: 'def'
   root to: 'home#index'
 
